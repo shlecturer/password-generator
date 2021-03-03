@@ -8,7 +8,17 @@ all = uchars + lchars + digits + special
 
 
 def main():
-    sample = random.sample(all, 10)
+    while True:
+        try:
+            count = int(input('Password length (1..50): '))
+            if not 0 < count < 50:
+                print('Length must be between 1 and 50.')
+            else:
+                break
+        except ValueError:
+            print('Please enter a number.')
+
+    sample = random.sample(all, count)
     print(''.join(sample))
 
 
